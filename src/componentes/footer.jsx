@@ -17,7 +17,7 @@ function footer() {
             <FaInstagram className="footer-icon" />
           </a>
         </div>
-        <p>&copy; 2024 Banco Santander Argentina S.A. Todos los derechos Reservados.</p>
+        <p>&copy; 2024 Start-Up Argentina S.A. Todos los derechos Reservados.</p>
       </div>
     </footer>
   );

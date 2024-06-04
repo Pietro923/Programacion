@@ -13,8 +13,8 @@ const teamMembers = [
 const team = () => {
   return (
     <div className="team-section">
-      <h1 className="team-title">WHO WE ARE</h1>
-      <h2 className="team-subtitle">TEAM WORK</h2>
+      <h1 className="team-title">QUIENES SOMOS</h1>
+      <h2 className="team-subtitle">EQUIPO DE TRABAJO</h2>
       <div className="team-gallery">
         {teamMembers.map((member, index) => (
           <div className="team-item" key={index}>

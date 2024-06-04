@@ -6,10 +6,10 @@ function fondo() {
     <div className="hero">
       <div className="overlay">
         <div className="text-container">
-          <h1>GRAPHICS. WEB. DIGITAL.</h1>
+          <h1>SOFTWARE A MEDIDA</h1>
           <h2>START-UP</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-          <button className="cta-button">EXPLORE WORK</button>
+          <p>Empresa dedicada al desarrollo de software.</p>
+          <button className="cta-button">EXPLORAR NUESTRO TRABAJO</button>
         </div>
       </div>
     </div>

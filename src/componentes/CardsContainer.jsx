@@ -9,28 +9,28 @@ import '../estilos/CardsContainer.css';
 const cardData = [
   {
     icon: <FaPencilAlt />,
-    title: "PIXEL PERFECT",
-    description: "A user-friendly experience starts with pixel-perfect design."
+    title: "DESARROLLO A MEDIDA",
+    description: "Creamos soluciones de software personalizadas que responden a las necesidades específicas de cada cliente."
   },
   {
     icon: <FaShapes />,
-    title: "VECTOR SHAPES",
-    description: "Our designs scale to any size, giving you flexibility and control."
+    title: "AUTOMATIZACIÓN",
+    description: "Automatizamos procesos para aumentar la eficiencia y reducir errores humanos."
   },
   {
     icon: <FaFont />,
-    title: "GOOGLE FONTS",
-    description: "We use the latest in font technology to ensure readability."
+    title: "INTELIGENCIA ARTIFICIAL",
+    description: "Implementamos tecnologías de IA para ofrecer soluciones innovadoras y avanzadas."
   },
   {
     icon: <FaLayerGroup />,
-    title: "EASY LAYERS",
-    description: "Our layered design approach simplifies complex problems."
+    title: "GESTIÓN DE PROYECTOS",
+    description: "Gestionamos proyectos de principio a fin, asegurando una entrega puntual y de alta calidad."
   },
   {
     icon: <FaThLarge />,
-    title: "BOOTSTRAP GRID",
-    description: "We build with Bootstrap to create responsive, mobile-first projects."
+    title: "DESARROLLO MÓVIL",
+    description: "Desarrollamos aplicaciones móviles que ofrecen una excelente experiencia de usuario en todos los dispositivos."
   }
 ];
 
@@ -38,9 +38,9 @@ const CardsContainer = () => {
   return (
     <div className="content-wrapper">
       <div className="content-header">
-        <h1>WHAT WE DO</h1>
-        <h2>EXPERTS</h2>
-        <p>We build digital solutions.</p>
+        <h1>¿Qué hacemos?</h1>
+        <h2></h2>
+        <p>Nosotros construimos soluciones digitales.</p>
       </div>
       <div className="cards-container">
         {cardData.map((card, index) => (

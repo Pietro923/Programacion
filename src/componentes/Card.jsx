@@ -8,7 +8,7 @@ const Card = ({ icon, title, description }) => {
       <div className="card-icon">{icon}</div>
       <div className="card-title">{title}</div>
       <div className="card-description">{description}</div>
-      <div className="card-link">LEARN MORE</div>
+      <div className="card-link">LEER MÁS</div>
     </div>
   );
 };

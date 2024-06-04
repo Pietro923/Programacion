@@ -15,7 +15,7 @@ const projects = [
 const Work = () => {
   return (
     <div className="work-section">
-      <h1 className="work-title">THE WORK</h1>
+      <h1 className="work-title">NUESTRO TRABAJO</h1>
       <div className="work-categories">
         <span>ALL</span>
         <span> - </span>
