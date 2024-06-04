@@ -1,0 +1,69 @@
+/* src/componentes/Work.css */
+
+.work-section {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .work-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .work-categories {
+    margin-bottom: 40px;
+    font-size: 1.2em;
+  }
+  
+  .work-categories span {
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .work-categories span:hover {
+    color: #007bff;
+  }
+  
+  .work-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Para que las imágenes se envuelvan en varias filas si es necesario */
+  }
+  
+  .work-item {
+    position: relative;
+    width: 300px; /* Ancho fijo para las imágenes */
+    height: 350px; /* Alto fijo para las imágenes */
+    overflow: hidden; /* Ocultar el contenido desbordado */
+  }
+  
+  .work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recortar la imagen para que cubra el contenedor sin deformarse */
+  }
+  
+  .work-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .work-item:hover .work-overlay {
+    opacity: 1;
+  }
+  
+  .work-icon {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+  }
+  
