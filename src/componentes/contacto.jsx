@@ -24,34 +24,32 @@ function Contacto() {
   return (
     <div className="contact-form-container">
       <h2>Contacto</h2>
-      <h3>Contactate con nosotros</h3>
       <form onSubmit={handleSubmit}>
-        <label>
-          Nombre:
-          <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Apellido:
-          <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Número de teléfono:
-          <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Correo electrónico:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Mensaje:
-          <textarea name="message" value={formData.message} onChange={handleChange} />
-        </label>
-        <br />
-        <button type="submit">Enviar</button>
+        <div className="form-left">
+          <label>
+            Mensaje:
+            <textarea name="message" value={formData.message} onChange={handleChange} />
+          </label>
+        </div>
+        <div className="form-right">
+          <label>
+            Nombre:
+            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
+          </label>
+          <label>
+            Apellido:
+            <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
+          </label>
+          <label>
+            Número de teléfono:
+            <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
+          </label>
+          <label>
+            Correo electrónico:
+            <input type="email" name="email" value={formData.email} onChange={handleChange} />
+          </label>
+          <button type="submit">Enviar</button>
+        </div>
       </form>
     </div>
   );
