@@ -1,46 +1,36 @@
-import React, { useState } from 'react';
-import '../estilos/ingresar.css'; // Asegúrate de tener un archivo CSS para estilos
+// src/componentes/ingresarr.jsx
+import React from 'react';
+import { Modal, Button, Form } from 'react-bootstrap';
+import '../estilos/ingresar.css'; // Importa el archivo CSS
 
-function Login() {
-  const [dni, setdni] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Aquí puedes agregar lógica para autenticar al usuario
-    console.log('dni:', dni);
-    console.log('Usuario:', username);
-    console.log('Contraseña:', password);
+function Ingresar({ show, handleClose }) {
+  const handleLoginClick = () => {
+    const loginUrl = "URL_DE_TU_PAGINA_DE_INICIO_DE_SESION"; // Reemplaza con tu URL
+    window.open(loginUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <div className="login-page">
-      <div className="company-name">
-        
-      </div>
-      <div className="login-container">
-        <h2>¡Hola! Te damos la bienvenida</h2>
-        <h3>Completá tus datos y empezá a operar.</h3>
-        <form onSubmit={handleSubmit}>
-        <label>
-            DNI:
-            <input type="text" value={dni} onChange={(e) => setdni(e.target.value)} />
-          </label>
-          <label>
-            Usuario:
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-          </label>
-          <label>
-            Contraseña:
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          </label>
-          <button type="submit">Ingresar</button>
-        </form>
-      </div>
-    </div>
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Iniciar Sesión</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Contraseña</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+          <Button variant="primary" type="button" onClick={handleLoginClick}>
+            Iniciar Sesión
+          </Button>
+        </Form>
+      </Modal.Body>
+    </Modal>
   );
 }
 
-export default Login;
+export default Ingresar;

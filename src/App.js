@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// App.js
 import './App.css';
 import Navbar from './componentes/navbar';
 import Fondo from './componentes/fondo';
@@ -7,8 +7,6 @@ import Work from './componentes/Work';
 import Team from './componentes/team';
 import Footer from './componentes/footer';
 import Contacto from './componentes/contacto';
-import Ingresar from './componentes/ingresar';
-
 
 function App() {
   return (
@@ -19,7 +17,6 @@ function App() {
       <Work />
       <Team />
       <Contacto />
-      <Ingresar />
       <Footer />
     </div>
   );
