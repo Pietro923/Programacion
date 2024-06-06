@@ -1,12 +1,15 @@
 // src/componentes/ingresarr.jsx
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import '../estilos/ingresar.css'; // Importa el archivo CSS
 
 function Ingresar({ show, handleClose }) {
+  const navigate = useNavigate();
+
   const handleLoginClick = () => {
-    const loginUrl = "URL_DE_TU_PAGINA_DE_INICIO_DE_SESION"; // Reemplaza con tu URL
-    window.open(loginUrl, '_blank', 'noopener,noreferrer');
+    handleClose(); // Cierra el modal antes de redirigir
+    navigate('/ingresar');
   };
 
   return (

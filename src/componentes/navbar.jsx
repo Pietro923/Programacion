@@ -1,13 +1,19 @@
 // componentes/navbar.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import '../estilos/navbar.css';
 import Ingresar from '../componentes/ingresar.jsx';
 
 function Navbar() {
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); // Inicializa useNavigate
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
+  const handleNavigateHome = () => {
+    navigate('/'); // Redirige a la ruta raíz
+  };
 
   return (
     <>
@@ -20,7 +26,7 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+                <a className="nav-link active" aria-current="page" href="#" onClick={handleNavigateHome}>Inicio</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Servicios</a>
@@ -35,13 +41,13 @@ function Navbar() {
                 <a className="nav-link" href="#">Contacto</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#" onClick={handleShow}>Ingresar</a>
+                <a className="nav-link" href="#" onClick={handleShowModal}>Ingresar</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-      <Ingresar show={show} handleClose={handleClose} />
+      <Ingresar show={showModal} handleClose={handleCloseModal} />
     </>
   );
 }
