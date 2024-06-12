@@ -1,55 +1,56 @@
-// componentes/navbar.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { NavLink, useNavigate } from 'react-router-dom'; // Importa NavLink y useNavigate
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Link as ScrollLink } from 'react-scroll';
 import '../estilos/navbar.css';
-import Ingresar from '../componentes/ingresar.jsx';
+import Ingresar from '../componentes/ingresar'; // Importa el componente Ingresar
 
-function Navbar() {
+function NavigationBar() {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate(); // Inicializa useNavigate
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
-
+  
   const handleNavigateHome = () => {
     navigate('/'); // Redirige a la ruta raíz
   };
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg fixed-top navbar-transparent">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">Nosotros</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#" onClick={handleNavigateHome}>Inicio</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Servicios</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Productos</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Equipo</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Contacto</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#" onClick={handleShowModal}>Ingresar</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar bg="light" expand="lg" fixed="top">
+        <Container>
+          <Navbar.Brand as={ScrollLink} to="inicio" smooth={true} duration={100}>
+            Nosotros
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
+              <ScrollLink className="nav-link" to="inicio" smooth={true} duration={100} onClick={handleNavigateHome}>
+                Inicio
+              </ScrollLink>
+              <ScrollLink className="nav-link" to="servicios" smooth={true} duration={100}>
+                Servicios
+              </ScrollLink>
+              <ScrollLink className="nav-link" to="productos" smooth={true} duration={100}>
+                Productos
+              </ScrollLink>
+              <ScrollLink className="nav-link" to="equipo" smooth={true} duration={100}>
+                Equipo
+              </ScrollLink>
+              <ScrollLink className="nav-link" to="contacto" smooth={true} duration={100}>
+                Contacto
+              </ScrollLink>
+              <NavLink className="nav-link" to="#" onClick={handleShowModal}>
+                Ingresar
+              </NavLink>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
       <Ingresar show={showModal} handleClose={handleCloseModal} />
     </>
   );
 }
 
-export default Navbar;
+export default NavigationBar;
