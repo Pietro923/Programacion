@@ -19,6 +19,7 @@ function Contacto() {
     e.preventDefault();
     // Aquí podrías enviar los datos a tu servidor o hacer lo que necesites con ellos
     console.log(formData);
+    alert('Mensaje Enviado. Muchas gracias por ponerse en contacto con nosotros!');
   };
 
   return (

@@ -53,13 +53,13 @@ const Work = () => {
           </div>
         ))}
       </div>
-
+      
       {currentIndex !== null && (
         <div className="carousel-wrapper" onClick={closeImage}>
           <div className="carousel-image-container">
             <img src={projects[currentIndex].imgSrc} alt="Enlarged" className="carousel-image" />
           </div>
-          <button className="close-button" onClick={closeImage}>Close</button>
+          {/* <button className="close-button" onClick={closeImage}>Close</button> */} {/* boton horrible */}
           <button className="prev-button" onClick={showPrevImage}>‹</button>
           <button className="next-button" onClick={showNextImage}>›</button>
         </div>
