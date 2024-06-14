@@ -1,0 +1,11 @@
+.news-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }

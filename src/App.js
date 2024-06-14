@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavigationBar from './componentes/navbar';
 import Fondo from './componentes/fondo';
@@ -14,12 +16,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavigationBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ingresar" element={<Programa />} />
         </Routes>
-        <Footer />
       </div>
     </Router>
   );
@@ -27,6 +27,7 @@ function App() {
 
 const Home = () => (
   <>
+    <NavigationBar />
     <section id="inicio">
       <Fondo />
     </section>
@@ -42,6 +43,7 @@ const Home = () => (
     <section id="contacto">
       <Contacto />
     </section>
+    <Footer />
   </>
 );
 
