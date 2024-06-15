@@ -3,14 +3,15 @@ import React from 'react';
 import Header from '../componentes/Header';
 import ServiceCard from '../componentes/ServiceCard';
 import NextAppointment from '../componentes/NextAppointment';
-
 import { Carousel } from 'react-bootstrap'; // Importar Carousel desde react-bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../estilos/programa.css';
+import NavbarPrograma from '../componentes/navbarprograma'; // Importar NavbarPrograma
 
 function Programa() {
   return (
     <div className="container-fluid app-container">
+      <NavbarPrograma /> {/* Llama al componente NavbarPrograma aquí */}
       <Header />
       <div className="row mb-4 justify-content-center">
         <div className="col-12 col-md-8">

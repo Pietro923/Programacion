@@ -16,8 +16,15 @@
 }
 
 .work-categories span {
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit; /* Mantiene el color del texto original */
   cursor: pointer;
   color: #333;
+}
+
+.no-underline {
+  text-decoration: none; /* Asegura que no haya subrayado */
+  color: inherit; /* Mantiene el color del texto original */
 }
 
 .work-categories span:hover {

@@ -11,6 +11,7 @@ import Team from './componentes/team';
 import Footer from './componentes/footer';
 import Contacto from './componentes/contacto';
 import Programa from './componentes/programa';
+import PaginaEjemplo from './componentes/pagejemplo.jsx';
 import { ModalProvider } from './componentes/ModalContext.jsx';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/ingresar" element={<Programa />} />
+            <Route path="/nueva-pagina" element={<PaginaEjemplo />} /> {/* Añade la nueva ruta */}
           </Routes>
         </div>
       </ModalProvider>
