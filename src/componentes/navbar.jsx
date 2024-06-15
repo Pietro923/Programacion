@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom'; // Importa NavLink y useNavigate
+import { NavLink, useNavigate } from 'react-router-dom'; 
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link as ScrollLink } from 'react-scroll';
 import '../estilos/navbar.css';
-import Ingresar from '../componentes/ingresar'; // Importa el componente Ingresar
+import Ingresar from '../componentes/ingresar'; 
+
 
 function NavigationBar() {
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate(); // Inicializa useNavigate
+  const navigate = useNavigate(); 
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
   
   const handleNavigateHome = () => {
-    navigate('/'); // Redirige a la ruta raíz
+    navigate('/');
   };
-
   return (
     <>
       <Navbar bg="light" expand="lg" fixed="top">

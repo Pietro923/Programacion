@@ -11,16 +11,19 @@ import Team from './componentes/team';
 import Footer from './componentes/footer';
 import Contacto from './componentes/contacto';
 import Programa from './componentes/programa';
+import { ModalProvider } from './componentes/ModalContext.jsx';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/ingresar" element={<Programa />} />
-        </Routes>
-      </div>
+      <ModalProvider>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/ingresar" element={<Programa />} />
+          </Routes>
+        </div>
+      </ModalProvider>
     </Router>
   );
 }

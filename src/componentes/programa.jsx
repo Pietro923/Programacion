@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../componentes/Header';
 import ServiceCard from '../componentes/ServiceCard';
 import NextAppointment from '../componentes/NextAppointment';
-import News from '../componentes/News';
+
 import { Carousel } from 'react-bootstrap'; // Importar Carousel desde react-bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../estilos/programa.css';
@@ -46,7 +46,6 @@ function Programa() {
         </Carousel.Item>
       </Carousel>
       <NextAppointment />
-      <News />
     </div>
   );
 }
