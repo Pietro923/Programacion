@@ -1,0 +1,56 @@
+.testimonios-section {
+    padding: 20px;
+    background-color: #2b2d42;
+    text-align: center;
+    color: #edf2f4;
+  }
+  
+  .testimonios-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
+  
+  .testimonio-card {
+    background-color: #1f2235;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonio-text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .cliente-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cliente-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .cliente-detalles {
+    text-align: left;
+  }
+  
+  .cliente-nombre {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .cliente-rating {
+    color: #ffcc00;
+  }
+  
+  .estrella {
+    font-size: 1em;
+  }
+  

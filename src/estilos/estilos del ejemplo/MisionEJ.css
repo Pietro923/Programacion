@@ -1,0 +1,36 @@
+.mision-container {
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    height: 100vh; /* Altura completa de la pantalla */
+  }
+  
+  .fondo-image {
+    position: absolute; /* Para que la imagen de fondo esté detrás del contenido */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajustar la imagen al contenedor sin deformarla */
+  }
+  
+  .mision-content {
+    text-align: center;
+    color: #000000; /* Color del texto */
+  }
+  
+  .saber-mas-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    text-decoration: none; /* Eliminar subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+  }
+  
+  .saber-mas-btn:hover {
+    background-color: #0056b3; /* Cambiar el color de fondo al pasar el ratón */
+  }
+  

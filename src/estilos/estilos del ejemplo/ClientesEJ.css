@@ -1,0 +1,29 @@
+.clientes-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .cliente-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    width: 250px; /* Puedes ajustar este tamaño según sea necesario */
+  }
+  
+  .cliente-img {
+    width: 100%; /* Hacer que la imagen ocupe todo el ancho del contenedor */
+    height: 250px; /* Altura fija para las imágenes */
+    object-fit: fill; /* Mantener la proporción de la imagen */
+   
+  }
+  
+  .cliente-card p {
+    margin-top: 10px;
+    color: #333;
+    font-size: 1em;
+  }
+  
