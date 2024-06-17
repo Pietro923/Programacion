@@ -8,7 +8,7 @@ import imagen4 from '../../imagenes/imagenes del ejemplo/cardej4.png'; // Import
 function CardEJ() {
   return (
     <div className="card-container">
-      <div className="card">
+      <div className="cardd">
         <div className="card-text">
           <h4>Eficiencia</h4>
           <h2>Desbloquea tu potencial</h2>
@@ -17,7 +17,7 @@ function CardEJ() {
         </div>
         <img src={imagen1} alt="Imagen 1" className="card-img" />
       </div>
-      <div className="card">
+      <div className="cardd">
         <div className="card-text">
           <h4>Seguridad</h4>
           <h2>Protege tus datos</h2>
@@ -26,7 +26,7 @@ function CardEJ() {
         </div>
         <img src={imagen2} alt="Imagen 2" className="card-img" />
       </div>
-      <div className="card">
+      <div className="cardd">
         <div className="card-text">
           <h4>Avances</h4>
           <h2>Especialízate en las nuevas tecnologías</h2>
@@ -35,7 +35,7 @@ function CardEJ() {
         </div>
         <img src={imagen3} alt="Imagen 3" className="card-img" />
       </div>
-      <div className="card">
+      <div className="cardd">
         <div className="card-text">
           <h4>Ventas</h4>
           <h2>Ventajas sobre las ventas</h2>
