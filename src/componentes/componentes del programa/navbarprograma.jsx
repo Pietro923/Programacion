@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../estilos/navbarprograma.css'
+import '../../estilos/navbarprograma.css'
 
 function NavbarPrograma() {
     return (

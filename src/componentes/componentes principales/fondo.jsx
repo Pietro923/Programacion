@@ -1,5 +1,5 @@
 import React from 'react';
-import '../estilos/fondo.css'; // Asegúrate de tener este archivo CSS
+import '../../estilos/fondo.css'; // Asegúrate de tener este archivo CSS
 
 function fondo() {
   return (

@@ -1,12 +1,12 @@
 // Programa.jsx
 import React from 'react';
-import Header from '../componentes/Header';
-import ServiceCard from '../componentes/ServiceCard';
-import NextAppointment from '../componentes/NextAppointment';
+import Header from './Header';
+import ServiceCard from './ServiceCard';
+import NextAppointment from './NextAppointment';
 import { Carousel } from 'react-bootstrap'; // Importar Carousel desde react-bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../estilos/programa.css';
-import NavbarPrograma from '../componentes/navbarprograma'; // Importar NavbarPrograma
+import '../../estilos/programa.css';
+import NavbarPrograma from './navbarprograma'; // Importar NavbarPrograma
 
 function Programa() {
   return (

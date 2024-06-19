@@ -1,6 +1,6 @@
 // Este es el modelo de card que se usa en container card
 import React from 'react';
-import '../estilos/Card.css';
+import '../../estilos/Card.css';
 
 const Card = ({ icon, title, description }) => {
   return (

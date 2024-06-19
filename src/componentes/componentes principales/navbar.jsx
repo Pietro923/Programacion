@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom'; 
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link as ScrollLink } from 'react-scroll';
-import '../estilos/navbar.css';
-import Ingresar from '../componentes/ingresar'; 
+import '../../estilos/navbar.css';
+import Ingresar from './ingresar'; 
 
 
 function NavigationBar() {

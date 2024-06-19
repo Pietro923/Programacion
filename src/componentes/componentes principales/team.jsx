@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import '../estilos/team.css'; // Asegúrate de crear este archivo para estilos
-import person1 from '../imagenes/persona1.jpg';
-import person2 from '../imagenes/persona2.jpg';
-import person3 from '../imagenes/persona3.jpg';
-import Detalles from '../componentes/teamdetalle.jsx'; // Importa el componente Detalles
+import '../../estilos/team.css'; // Asegúrate de crear este archivo para estilos
+import person1 from '../../imagenes/persona1.jpg';
+import person2 from '../../imagenes/persona2.jpg';
+import person3 from '../../imagenes/persona3.jpg';
+import Detalles from './teamdetalle.jsx'; // Importa el componente Detalles
 
 const Team = () => {
   const [selectedMember, setSelectedMember] = useState(null); // Estado para manejar el miembro del equipo seleccionado

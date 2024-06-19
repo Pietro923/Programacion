@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../estilos/contacto.css'; 
+import '../../estilos/contacto.css'; 
 
 function Contacto() {
   const [formData, setFormData] = useState({

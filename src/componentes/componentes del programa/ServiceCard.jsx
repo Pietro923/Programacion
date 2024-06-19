@@ -1,7 +1,7 @@
 // ServiceCard.jsx
 import React, { useContext } from 'react';
 import { ModalContext } from './ModalContext';
-import '../estilos/ServiceCard.css';
+import '../../estilos/ServiceCard.css';
 
 function ServiceCard({ name }) {
   const { handleShowModal } = useContext(ModalContext);

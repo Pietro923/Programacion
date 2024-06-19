@@ -1,10 +1,8 @@
-// Este es el contenedor de las cards, aqui se usa el modelo que esta hecho en el otro archivo
-
 
 import React from 'react';
-import Card from '../componentes/Card.jsx';
+import Card from '../componentes principales/Card.jsx'
 import { FaPencilAlt, FaShapes, FaFont, FaLayerGroup, FaThLarge } from 'react-icons/fa';
-import '../estilos/CardsContainer.css';
+import '../../estilos/CardsContainer.css';
 
 const cardData = [
   {

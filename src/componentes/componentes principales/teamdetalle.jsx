@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import '../estilos/teamdetalle.css'; // Asegúrate de crear este archivo para estilos
+import '../../estilos/teamdetalle.css'; // Asegúrate de crear este archivo para estilos
 
 function Detalles({ show, handleClose, persona }) { 
   // Verifica si persona es null antes de intentar acceder a sus propiedades

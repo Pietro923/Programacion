@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import '../estilos/ingresar.css'; // Importa el archivo CSS
+import '../../estilos/ingresar.css'; // Importa el archivo CSS
 
 function Ingresar({ show, handleClose }) {
   const navigate = useNavigate();
