@@ -17,9 +17,7 @@ function Programa() {
         <NavbarPrograma />
         <Header />
         <div className="row mb-4 justify-content-center">
-          <div className="col-12 col-md-8">
-            <input type="text" className="form-control" placeholder="Encontrar un servicio" />
-          </div>
+          <p>Servicios disponibles</p>
         </div>
         <Carousel>
           <Carousel.Item>

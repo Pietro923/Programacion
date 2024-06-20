@@ -10,7 +10,8 @@ const appointmentSchema = new mongoose.Schema({
   userPhone: { type: String, required: true },
   date: { type: Date, required: true },
   time: { type: String, required: true },
-  comment: { type: String }
+  comment: { type: String },
+  status: { type: String, default: 'vigente' } // Añadir estado por defecto 'vigente'
 });
 
 const Appointment = mongoose.model('Appointment', appointmentSchema, 'turnos');
@@ -37,6 +38,40 @@ router.post('/saveAppointment', async (req, res) => {
   } catch (error) {
     console.error('Error al guardar el turno:', error);
     res.status(500).json({ error: 'Error al guardar el turno' });
+  }
+});
+
+// Endpoint para obtener turnos vigentes
+router.get('/turnosVigentes', async (req, res) => {
+  try {
+    const turnos = await Appointment.find({ status: 'vigente' });
+    res.json(turnos);
+  } catch (error) {
+    console.error('Error al obtener turnos vigentes:', error);
+    res.status(500).json({ error: 'Error al obtener turnos vigentes' });
+  }
+});
+
+// Endpoint para obtener turnos completados
+router.get('/turnosCompletados', async (req, res) => {
+  try {
+    const turnos = await Appointment.find({ status: 'completado' });
+    res.json(turnos);
+  } catch (error) {
+    console.error('Error al obtener turnos completados:', error);
+    res.status(500).json({ error: 'Error al obtener turnos completados' });
+  }
+});
+
+// Endpoint para actualizar el estado de un turno
+router.patch('/updateAppointment/:id', async (req, res) => {
+  try {
+    const { status } = req.body;
+    await Appointment.findByIdAndUpdate(req.params.id, { status });
+    res.status(200).json({ message: 'Turno actualizado exitosamente' });
+  } catch (error) {
+    console.error('Error al actualizar el turno:', error);
+    res.status(500).json({ error: 'Error al actualizar el turno' });
   }
 });
 
