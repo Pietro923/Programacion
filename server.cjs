@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const appointmentsRouter = require('./routes/appointments'); // Importar el router de appointments
 
 const app = express();
 app.use(cors());

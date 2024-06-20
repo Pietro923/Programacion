@@ -1,5 +1,6 @@
 // ServiceCard.jsx
 import React, { useContext } from 'react';
+import {ReservaTurnoModal} from './ReservaTurnoModal'
 import { ModalContext } from './ModalContext';
 import '../../estilos/ServiceCard.css';
 
