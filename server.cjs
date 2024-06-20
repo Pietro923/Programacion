@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 app.use(cors());
@@ -12,39 +14,68 @@ mongoose.connect('mongodb://localhost:27017/prueba1', {
   useUnifiedTopology: true,
 });
 
-// Definir un esquema para los datos del clima
-const weatherSchema = new mongoose.Schema({
-  city: String,
-  country: String,  // <-- Agregar este campo
-  temperature: Number,
+// Definir un esquema y modelo para los usuarios
+const userSchema = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
 });
 
 // Definir un modelo basado en el esquema
-const Weather = mongoose.model('Weather', weatherSchema, 'clima');
+const User = mongoose.model('User', userSchema, 'usuarios');
 
-// Endpoint para guardar datos del clima
-app.post('/saveWeatherData', async (req, res) => {
+// Endpoint para registrar usuarios
+app.post('/register', async (req, res) => {
   try {
-    const { city, country, temperature } = req.body;
-    
-    console.log('Datos recibidos en el servidor:', req.body); // <-- Agregar esta línea para imprimir el cuerpo de la solicitud
-    
-    // Crear una nueva instancia del modelo Weather
-    const newWeather = new Weather({
-      city,
-      country,  // <-- Agregar este campo
-      temperature,
+    const { email, password } = req.body;
+
+    // Hash de la contraseña
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Crear una nueva instancia del modelo User
+    const newUser = new User({
+      email,
+      password: hashedPassword,
     });
 
     // Guardar en la base de datos
-    await newWeather.save();
+    await newUser.save();
 
-    res.status(201).json({ message: 'Datos guardados en la base de datos' });
+    res.status(201).json({ message: 'Usuario registrado exitosamente' });
   } catch (error) {
-    console.error('Error al guardar datos en la base de datos:', error);
-    res.status(500).json({ error: 'Error al guardar datos en la base de datos' });
+    console.error('Error al registrar usuario:', error);
+    res.status(500).json({ error: 'Error al registrar usuario' });
   }
 });
+
+// Endpoint para iniciar sesión
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Buscar el usuario por email
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ error: 'Usuario no encontrado' });
+    }
+
+    // Verificar la contraseña
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(400).json({ error: 'Contraseña incorrecta' });
+    }
+
+    // Generar un token JWT
+    const token = jwt.sign({ id: user._id }, 'secretKey', { expiresIn: '1h' });
+
+    res.json({ token });
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error);
+    res.status(500).json({ error: 'Error al iniciar sesión' });
+  }
+});
+
+// Usar el router de appointments
+app.use('/api', appointmentsRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
