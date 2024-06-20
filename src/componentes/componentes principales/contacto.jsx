@@ -1,25 +1,48 @@
 import React, { useState } from 'react';
-import '../../estilos/contacto.css'; 
+import '../../estilos/contacto.css';
 
 function Contacto() {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     firstName: '',
     lastName: '',
     phoneNumber: '',
     email: '',
     message: ''
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí podrías enviar los datos a tu servidor o hacer lo que necesites con ellos
-    console.log(formData);
-    alert('Mensaje Enviado. Muchas gracias por ponerse en contacto con nosotros!');
+  
+    try {
+      const response = await fetch('http://localhost:5000/contacto/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        // Limpiar los campos del formulario
+        setFormData(initialFormData);
+        // Mostrar mensaje de éxito
+        alert('Mensaje Enviado. ¡Gracias por contactarnos!');
+      } else {
+        // Manejar la respuesta si hay algún error en la solicitud
+        alert('Hubo un problema al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.');
+      }
+    } catch (error) {
+      // Manejar errores de red u otros errores
+      console.error('Error al enviar el mensaje:', error);
+      alert('Hubo un problema al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.');
+    }
   };
 
   return (
