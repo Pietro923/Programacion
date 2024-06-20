@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/ingresar" element={<Programa />} />
-            <Route path="/nueva-pagina" element={<PaginaEjemplo />} /> {/* Añade la nueva ruta */}
+            <Route path="/Tech Innovate" element={<PaginaEjemplo />} /> {/* Añade la nueva ruta */}
           </Routes>
         </div>
       </ModalProvider>

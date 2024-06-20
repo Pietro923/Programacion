@@ -26,4 +26,13 @@
     color: #333;
     font-size: 1em;
   }
+  .clientes-section h2 {
+    color: #ff5733;
+    font-size: 2.5rem;
+    text-align: left; 
+    padding-left: 330px;
+    margin-top: 250px;
+    margin-bottom: -17px;
+  
+  }
   

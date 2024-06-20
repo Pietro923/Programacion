@@ -37,7 +37,7 @@ const Work = () => {
     <div className="work-section">
       <h1 className="work-title">NUESTRO TRABAJO</h1>
       <div className="work-categories">
-      <Link to="/nueva-pagina" className="no-underline"> {/* Cambiado span por Link */}
+      <Link to="/Tech Innovate" className="no-underline"> {/* Cambiado span por Link */}
           <span>Ver Ejemplo</span>
         </Link>
       </div>
