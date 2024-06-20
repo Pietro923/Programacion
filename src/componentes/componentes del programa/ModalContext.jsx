@@ -1,5 +1,6 @@
-// ModalContext.js
-import React, { createContext, useState } from 'react';
+// ModalContext.jsx
+import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const ModalContext = createContext();
 
@@ -8,13 +9,24 @@ export const ModalProvider = ({ children }) => {
   const [showUserModal, setShowUserModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTime, setSelectedTime] = useState('');
   const [comment, setComment] = useState('');
-  const [userData, setUserData] = useState({
-    name: '',
-    email: '',
-    phone: ''
-  });
+  const [userData, setUserData] = useState({ name: '', email: '', phone: '' });
+  const [turnosVigentes, setTurnosVigentes] = useState([]);
+
+  const fetchTurnosVigentes = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/turnosVigentes'); // Corregido
+      setTurnosVigentes(response.data);
+    } catch (error) {
+      console.error('Error fetching turnos vigentes:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTurnosVigentes();
+  }, []);
+
 
   const handleShowModal = (content) => {
     setModalContent(content);
@@ -41,29 +53,20 @@ export const ModalProvider = ({ children }) => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/saveAppointment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          userName: userData.name,
-          userEmail: userData.email,
-          userPhone: userData.phone,
-          date: selectedDate,
-          time: selectedTime,
-          comment
-        }),
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        alert('Turno guardado exitosamente');
-        handleCloseUserModal();
-      } else {
-        alert(data.error);
-      }
+      const nuevoTurno = {
+        date: selectedDate,
+        time: selectedTime,
+        comment,
+        userName: userData.name,
+        userEmail: userData.email,
+        userPhone: userData.phone,
+      };
+      await axios.post('http://localhost:5000/api/saveAppointment', nuevoTurno);
+      fetchTurnosVigentes(); // Actualiza los turnos vigentes después de registrar un nuevo turno
+      handleCloseUserModal();
+      handleCloseModal();
     } catch (error) {
-      console.error('Error al guardar el turno:', error);
-      alert('Error al guardar el turno');
+      console.error('Error registrando nuevo turno:', error);
     }
   };
 
@@ -75,12 +78,13 @@ export const ModalProvider = ({ children }) => {
         modalContent,
         selectedDate,
         selectedTime,
-        comment,
         userData,
+        turnosVigentes,
+        comment,
         handleShowModal,
         handleCloseModal,
-        handleShowUserModal,
         handleCloseUserModal,
+        handleShowUserModal,
         setSelectedDate,
         setSelectedTime,
         setComment,

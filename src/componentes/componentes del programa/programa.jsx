@@ -10,8 +10,10 @@ import NavbarPrograma from './navbarprograma';
 import { ModalProvider } from './ModalContext';
 import ReservaTurnoModal from './ReservaTurnoModal';
 
+
 function Programa() {
   return (
+   
     <ModalProvider>
       <div className="container-fluid app-container">
         <NavbarPrograma />
@@ -51,6 +53,7 @@ function Programa() {
         <ReservaTurnoModal />
       </div>
     </ModalProvider>
+    
   );
 }
 

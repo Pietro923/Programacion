@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ModalContext } from './ModalContext';
 
+
 function ReservaTurnoModal() {
   const {
     showModal,
@@ -23,10 +24,9 @@ function ReservaTurnoModal() {
     setUserData,
     handleSubmit,
   } = useContext(ModalContext);
-
+  
   return (
     <>
-      {/* Modal para seleccionar turno */}
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Reservar un Turno</Modal.Title>
@@ -78,7 +78,6 @@ function ReservaTurnoModal() {
         </Modal.Footer>
       </Modal>
 
-      {/* Modal para datos del usuario */}
       <Modal show={showUserModal} onHide={handleCloseUserModal}>
         <Modal.Header closeButton>
           <Modal.Title>Datos del Usuario</Modal.Title>
