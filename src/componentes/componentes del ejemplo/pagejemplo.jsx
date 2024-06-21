@@ -16,7 +16,7 @@ function PaginaEjemplo() {
     <>
       <NavbarEj />
       <FondoEJ /> {/* Renderizar el componente FondoEJ */}
-      <MisionEj />
+      
       <TextoEJ /> 
       <CardEJ />
       <TextoEJ2 />
