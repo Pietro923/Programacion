@@ -25,6 +25,11 @@ function ReservaTurnoModal() {
     handleSubmit,
   } = useContext(ModalContext);
   
+  // Función para recargar la página
+  const reloadPage = () => {
+    window.location.reload();
+  };
+  
   return (
     <>
       <Modal show={showModal} onHide={handleCloseModal}>
@@ -120,7 +125,8 @@ function ReservaTurnoModal() {
           <Button variant="secondary" onClick={handleCloseUserModal}>
             Cerrar
           </Button>
-          <Button variant="primary" onClick={handleSubmit}>
+          {/* Cambio en el onClick del botón "Confirmar" */}
+          <Button variant="primary" onClick={() => { handleSubmit(); reloadPage(); }}>
             Confirmar
           </Button>
         </Modal.Footer>
