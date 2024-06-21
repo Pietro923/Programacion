@@ -9,7 +9,7 @@ import '../../estilos/programa.css';
 import NavbarPrograma from './navbarprograma';
 import { ModalProvider } from './ModalContext';
 import ReservaTurnoModal from './ReservaTurnoModal';
-
+import Chatbot from './Chatbot'; // Importar el componente del chatbot
 
 function Programa() {
   return (
@@ -18,6 +18,7 @@ function Programa() {
       <div className="container-fluid app-container">
         <NavbarPrograma />
         <Header />
+        <Chatbot />
         <div className="row mb-4 justify-content-center">
           <p>Servicios disponibles</p>
         </div>
