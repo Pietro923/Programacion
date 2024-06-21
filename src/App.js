@@ -13,6 +13,7 @@ import Contacto from './componentes/componentes principales/contacto';
 import Programa from './componentes/componentes del programa/programa';
 import PaginaEjemplo from './componentes/componentes del ejemplo/pagejemplo.jsx';
 import { ModalProvider } from './componentes/componentes del programa/ModalContext.jsx';
+import Chatbot from './componentes/componentes principales/Chatbot.jsx';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ const Home = () => (
     <NavigationBar />
     <section id="inicio">
       <Fondo />
+      <Chatbot />
     </section>
     <section id="servicios">
       <CardsContainer />

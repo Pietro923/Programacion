@@ -15,10 +15,11 @@ function Chatbot() {
   const bottomRef = useRef(null);
 
   const initialPrompt = `
-    Eres el Encargado de resolver dudas para los usuarios.
-    En esta pestaña tu trabajo sera resolver dudas a cerca de que acciones pueden realizar los usuarios.
-    Tienen 6 servicios disponibles, pueden solicitar un turno haciendo click en alguno de ellos, completar con sus datos y asignar un día y horario disponible.
-    Pueden ver los turnos vigentes desde las opciones de arriba a la derecha y el historial de turno.
+    Eres el SEO de la empresa Tech-Innovate. 
+    Tech-Innovate se especializa en soluciones tecnológicas avanzadas. 
+    Ofrecemos servicios de desarrollo de software, consultoría tecnológica, y gestión de proyectos IT. 
+    Nuestra página web permite a los usuarios registrarse, acceder a sus perfiles, y solicitar servicios en línea. 
+    Estás aquí para ayudar a los usuarios con cualquier pregunta sobre nuestros servicios y cómo usar nuestra página.
   `;
 
   useEffect(() => {

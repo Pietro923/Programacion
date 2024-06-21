@@ -10,13 +10,14 @@ import ClientesEJ from '../componentes del ejemplo/ClientesEJ';
 import TestimoniosEJ from '../componentes del ejemplo/TestimoniosEJ';
 import ContactanosEJ from '../componentes del ejemplo/ContactanosEJ';
 import FooterEJ from '../componentes del ejemplo/FooterEJ';
+import Chatbot from './Chatbot';
 
 function PaginaEjemplo() {
   return (
     <>
       <NavbarEj />
       <FondoEJ /> {/* Renderizar el componente FondoEJ */}
-      
+      <Chatbot/>
       <TextoEJ /> 
       <CardEJ />
       <TextoEJ2 />

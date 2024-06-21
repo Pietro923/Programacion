@@ -15,10 +15,10 @@ function Chatbot() {
   const bottomRef = useRef(null);
 
   const initialPrompt = `
-    Eres el Encargado de resolver dudas para los usuarios.
-    En esta pestaña tu trabajo sera resolver dudas a cerca de que acciones pueden realizar los usuarios.
-    Tienen 6 servicios disponibles, pueden solicitar un turno haciendo click en alguno de ellos, completar con sus datos y asignar un día y horario disponible.
-    Pueden ver los turnos vigentes desde las opciones de arriba a la derecha y el historial de turno.
+    Eres el SEO de la empresa START-UP.
+    START-UP se especializa en brindar soluciones a traves de softwares a medida.
+    Podes ver nuestros trabajos, ejemplos de ellos y conocer a nuestro team en el inicio.
+    Tambien podes ingresar y empezar a operar y ver tus turnos registrados.
   `;
 
   useEffect(() => {
