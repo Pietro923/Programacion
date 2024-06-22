@@ -27,6 +27,7 @@ function NavbarEj() {
                     </div>
                     <a className="navbar-brand mx-auto" href="#">Tech Innovate</a>
                     <div className="navbar-nav ms-auto">
+                    <a className="nav-link active" aria-disabled="true">Sacar turno</a>
                         <a className="nav-link active" aria-disabled="true">Nosotros</a>
                         <NavLink className="nav-link" to="#" onClick={handleShowModal}>
                             Ingresar

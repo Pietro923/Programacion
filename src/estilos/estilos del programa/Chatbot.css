@@ -65,4 +65,37 @@
   .chatbot-footer button:hover {
     background-color: #0056b3;
   }
-  
+  /* CSS Adicional para el Desplegable */
+.chatbot-container.open {
+  max-height: 500px; /* Altura máxima del chatbot cuando está abierto */
+}
+
+.chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.chatbot-header .chevron {
+  transition: transform 0.3s ease;
+}
+
+.chatbot-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.chatbot-footer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 10px;
+}
+
+.chatbot-container.open .chatbot-body,
+.chatbot-container.open .chatbot-footer {
+  max-height: 300px; /* Altura máxima del cuerpo y pie del chatbot cuando está abierto */
+}
