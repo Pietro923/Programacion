@@ -11,6 +11,7 @@ import TestimoniosEJ from '../componentes del ejemplo/TestimoniosEJ';
 import ContactanosEJ from '../componentes del ejemplo/ContactanosEJ';
 import FooterEJ from '../componentes del ejemplo/FooterEJ';
 import Chatbot from './Chatbot';
+import Btnvolver from './Btnvolver';
 
 function PaginaEjemplo() {
   return (
@@ -18,6 +19,7 @@ function PaginaEjemplo() {
       <NavbarEj />
       <FondoEJ /> {/* Renderizar el componente FondoEJ */}
       <Chatbot/>
+      <Btnvolver/>
       <TextoEJ /> 
       <CardEJ />
       <TextoEJ2 />
