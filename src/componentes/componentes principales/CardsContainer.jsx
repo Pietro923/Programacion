@@ -1,6 +1,5 @@
-
 import React from 'react';
-import Card from '../componentes principales/Card.jsx'
+import Card from '../componentes principales/Card.jsx';
 import { FaPencilAlt, FaShapes, FaFont, FaLayerGroup, FaThLarge } from 'react-icons/fa';
 import '../../estilos/CardsContainer.css';
 
@@ -30,6 +29,17 @@ const cardData = [
     title: "DESARROLLO MÓVIL",
     description: "Desarrollamos aplicaciones móviles que ofrecen una excelente experiencia de usuario en todos los dispositivos."
   }
+];
+
+const serviceData = [
+  {
+    title: 'Servicio estándar',
+    description: 'Descripción del servicio estándar.',
+  },
+  {
+    title: 'Servicio premium',
+    description: 'Descripción del servicio premium.',
+  },
 ];
 
 const CardsContainer = () => {

@@ -14,6 +14,7 @@ import Programa from './componentes/componentes del programa/programa';
 import PaginaEjemplo from './componentes/componentes del ejemplo/pagejemplo.jsx';
 import { ModalProvider } from './componentes/componentes del programa/ModalContext.jsx';
 import Chatbot from './componentes/componentes principales/Chatbot.jsx';
+import CardCostos from './componentes/componentes principales/CardCostos.jsx';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ const Home = () => (
     </section>
     <section id="servicios">
       <CardsContainer />
+      <CardCostos />
     </section>
     <section id="productos">
       <Work />

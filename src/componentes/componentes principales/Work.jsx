@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import '../../estilos/Work.css';
 import { Link } from 'react-router-dom'; // Importar Link desde react-router-dom
 
-import img1 from '../../imagenes/1.jpg';
-import img2 from '../../imagenes/2.jpg'
-import img3 from '../../imagenes/3.jpg'
+import img1 from '../../imagenes/Aplicaciones Celular.jpeg';
+import img2 from '../../imagenes/Chatbot.png'
+import img3 from '../../imagenes/Soft a medida.jpg'
 
 const projects = [
   { imgSrc: img1, alt: 'Project 1' },
