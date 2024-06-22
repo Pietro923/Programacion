@@ -1,58 +1,62 @@
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .cardd {
-    background: #1a1a1a;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 5px;
-    max-width: 600px;
-    width: 600px;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    text-align: left;
-    color: white;
-  }
-  
-  .card-text {
-    padding: 20px;
-    flex: 1;
-  }
-  
-  .card-text h4 {
-    color: #ccc;
-    font-size: 1.2em;
-  }
-  
-  .card-text h2 {
-    color: #fff;
-    font-size: 1.8em;
-    margin: 10px 0;
-  }
-  
-  .card-text h3 {
-    color: #aaa;
-    font-size: 1em;
-    margin: 10px 0;
-  }
-  
-  .card-text a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 10px;
-    display: inline-block;
-  }
-  
-  .card-img {
-    width: 300px;
-    height: auto;
-    object-fit: cover;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra horizontalmente las tarjetas */
+  gap: 20px; /* Espacio entre tarjetas */
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Ancho fijo para cada tarjeta */
+  margin-bottom: 20px; /* Espacio entre las filas */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: left;
+  color: white;
+  transition: transform 0.2s ease; /* Transición para el efecto de zoom */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.card-text {
+  padding: 20px;
+  flex: 1;
+}
+
+.card-text h4 {
+  color: #ccc;
+  font-size: 1.2em;
+}
+
+.card-text h2 {
+  color: #fff;
+  font-size: 1.8em;
+  margin: 10px 0;
+}
+
+.card-text h3 {
+  color: #aaa;
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+.card-text a {
+  color: #ff5733;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.card-img {
+  width: 100%; /* Ajusta el ancho de la imagen al contenedor */
+  height: auto;
+  object-fit: cover;
+}

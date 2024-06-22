@@ -1,38 +1,29 @@
 .clientes-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .cliente-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: 10px;
-    width: 250px; /* Puedes ajustar este tamaño según sea necesario */
-  }
-  
-  .cliente-img {
-    width: 100%; /* Hacer que la imagen ocupe todo el ancho del contenedor */
-    height: 250px; /* Altura fija para las imágenes */
-    object-fit: fill; /* Mantener la proporción de la imagen */
-   
-  }
-  
-  .cliente-card p {
-    margin-top: 10px;
-    color: #333;
-    font-size: 1em;
-  }
-  .clientes-section h2 {
-    color: #ff5733;
-    font-size: 2.5rem;
-    text-align: left; 
-    padding-left: 330px;
-    margin-top: 250px;
-    margin-bottom: -17px;
-  
-  }
-  
+  display: flex;
+  justify-content: center; /* Centra horizontalmente las tarjetas */
+  gap: 20px; /* Espacio entre tarjetas */
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.cliente-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 15px;
+  width: 270px; /* Ancho fijo para cada tarjeta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.cliente-img {
+  width: 100%; /* Hacer que la imagen ocupe todo el ancho del contenedor */
+  height: 275px; /* Altura fija para las imágenes */
+  object-fit: cover; /* Ajustar imagen dentro del contenedor manteniendo proporciones */
+}
+
+.cliente-card p {
+  margin-top: 10px;
+  color: #333;
+  font-size: 1em;
+}

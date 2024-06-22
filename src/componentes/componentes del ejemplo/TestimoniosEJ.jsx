@@ -8,7 +8,7 @@ import avatar4 from '../../imagenes/imagenes del ejemplo/avatarEJ4.png'; // Impo
 function TestimoniosEJ() {
   return (
     <div className="testimonios-section">
-      <h2>Testimonios de Clientes</h2>
+      <p className='titulo'>Testimonios de Clientes</p>
       <div className="testimonio-card">
         <p className="testimonio-text">“This product has transformed our workflow entirely!”</p>
         <div className="cliente-info">
