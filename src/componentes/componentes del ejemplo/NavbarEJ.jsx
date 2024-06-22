@@ -3,15 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../estilos/estilos del ejemplo/NavbarEJ.css';
 import { NavLink, useNavigate } from 'react-router-dom'; 
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link as ScrollLink } from 'react-scroll';
-import Ingresar from '../../componentes/componentes del ejemplo/ingresarEJ.jsx'; 
+import Ingresar from '../../componentes/componentes del ejemplo/ingresarEJ.jsx';
+import ReservaTurnoModal from '../../componentes/componentes del ejemplo/ReservaTurnoModalEJ.jsx'; // Importa el componente para el segundo modal
 
 function NavbarEj() {
-    const [showModal, setShowModal] = useState(false);
-    const navigate = useNavigate(); 
-  
-    const handleShowModal = () => setShowModal(true);
-    const handleCloseModal = () => setShowModal(false);
+    const [showIngresarModal, setShowIngresarModal] = useState(false);
+    const [showSacarTurnoModal, setShowSacarTurnoModal] = useState(false);
+
+    const handleShowIngresarModal = () => setShowIngresarModal(true);
+    const handleCloseIngresarModal = () => setShowIngresarModal(false);
+
+    const handleShowSacarTurnoModal = () => setShowSacarTurnoModal(true);
+    const handleCloseSacarTurnoModal = () => setShowSacarTurnoModal(false);
 
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -27,15 +30,18 @@ function NavbarEj() {
                     </div>
                     <a className="navbar-brand mx-auto" href="#">Tech Innovate</a>
                     <div className="navbar-nav ms-auto">
-                    <a className="nav-link active" aria-disabled="true">Sacar turno</a>
+                        <NavLink className="nav-link" to="#" onClick={handleShowSacarTurnoModal}>
+                            Sacar turno
+                        </NavLink>
                         <a className="nav-link active" aria-disabled="true">Nosotros</a>
-                        <NavLink className="nav-link" to="#" onClick={handleShowModal}>
+                        <NavLink className="nav-link" to="#" onClick={handleShowIngresarModal}>
                             Ingresar
                         </NavLink>
                     </div>
                 </div>
             </div>
-            <Ingresar show={showModal} handleClose={handleCloseModal} />
+            <Ingresar show={showIngresarModal} handleClose={handleCloseIngresarModal} />
+            <ReservaTurnoModal show={showSacarTurnoModal} handleClose={handleCloseSacarTurnoModal} /> {/* Agrega el componente para el segundo modal */}
         </nav>
     );
 }
