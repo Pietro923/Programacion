@@ -4,17 +4,18 @@
     padding-left: 250px;
     padding-right: 177px;
     font-family: 'Playfair Display', serif;
-}
-
-.card-title2 h2 {
-    font-size: 1rem;
+  }
+  
+  .titulo {
+    font-size: 4rem;
     margin-bottom: 4px;
-    text-align: left; 
-    color: #00ADB5; 
-}
-
-.card-title2 h3 {
+    text-align: left;
+    color: #00adb5;
+  }
+  
+  .texto {
     font-size: 3rem;
     margin-bottom: 30px;
     text-align: left;
-}
+  }
+  
