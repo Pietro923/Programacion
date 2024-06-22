@@ -51,7 +51,7 @@ export const ModalProvider = ({ children }) => {
     setUserData({ name: '', email: '', phone: '' });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (collection = 'turnos') => {
     try {
       const nuevoTurno = {
         date: selectedDate,
@@ -60,6 +60,7 @@ export const ModalProvider = ({ children }) => {
         userName: userData.name,
         userEmail: userData.email,
         userPhone: userData.phone,
+        collection
       };
       await axios.post('http://localhost:5000/api/saveAppointment', nuevoTurno);
       fetchTurnosVigentes(); // Actualiza los turnos vigentes después de registrar un nuevo turno

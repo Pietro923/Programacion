@@ -120,7 +120,7 @@ function ReservaTurnoModal({ show, handleClose }) {
           <Button variant="secondary" onClick={handleCloseUserModal}>
             Cerrar
           </Button>
-          <Button variant="primary" onClick={() => { handleSubmit(); reloadPage(); }}>
+          <Button variant="primary" onClick={() => { handleSubmit('turnosEJ'); reloadPage(); }}>
             Confirmar
           </Button>
         </Modal.Footer>

@@ -16,13 +16,15 @@ const appointmentSchema = new mongoose.Schema({
 
 const Appointment = mongoose.model('Appointment', appointmentSchema, 'turnos');
 
-// Endpoint para guardar un turno
 router.post('/saveAppointment', async (req, res) => {
   try {
-    const { userName, userEmail, userPhone, date, time, comment } = req.body;
+    const { userName, userEmail, userPhone, date, time, comment, collection } = req.body;
 
+    // Definir la colección
+    const AppointmentModel = mongoose.model('Appointment', appointmentSchema, collection || 'turnos');
+    
     // Crear una nueva instancia del modelo Appointment
-    const newAppointment = new Appointment({
+    const newAppointment = new AppointmentModel({
       userName,
       userEmail,
       userPhone,
