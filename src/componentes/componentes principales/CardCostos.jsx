@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import '../../estilos/Cardcostos.css';
 
+
 const CardCostos = () => {
   const [showModal, setShowModal] = useState({ standard: false, premium: false, medida:false, informacion:false });
 
+  const initialFormData = {
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    email: '',
+    message: ''
+  };
   // Función para abrir el modal
   const handleOpenModal = (type) => {
     // Cerrar los otros modales y abrir el modal de información
@@ -16,15 +24,44 @@ const CardCostos = () => {
     setShowModal({ ...showModal, [type]: false });
   };
 
-  const handleSubmit = (event, modalType) => {
+  // Desde aqui no entiendo que estoy haciendo pero funciona el enviar el correo, pero no manda lo que quiero aun.
+  const [formData, setFormData] = useState(initialFormData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (event, modalType) => {
     event.preventDefault();
-    // Aquí puedes agregar la lógica para enviar los datos del formulario
-    // Por ejemplo, puedes realizar una llamada a una API o hacer algún procesamiento.
-    console.log('Formulario enviado');
+    
+    try {
+      const response = await fetch('http://localhost:5000/contacto/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        // Aquí puedes agregar lógica adicional si el envío fue exitoso
+        console.log('Mensaje enviado correctamente');
+      } else {
+        alert('Hubo un problema al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.');
+      }
+    } catch (error) {
+      // Manejar errores de red u otros errores
+      console.error('Error al enviar el mensaje:', error);
+      alert('Hubo un problema al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.');
+    }
+
     // Cierra el modal actual y abre el modal de "informacion"
     handleCloseModal(modalType);
     handleOpenModal('informacion');
   };
+
+  // Hasta aqui no entiendo bien que hice pero "funciona"
 
   // Evento de teclado para cerrar el modal al presionar "Esc"
   useEffect(() => {
@@ -101,13 +138,13 @@ const CardCostos = () => {
             <h3 className='h3'>Contratar Servicio Estándar</h3>
             <form className="modal-form">
               <label>Nombre:</label>
-              <input type="text" name="nombre" />
+              <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
               <label>Apellido:</label>
-              <input type="text" name="apellido" />
+              <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
               <label>Correo:</label>
-              <input type="email" name="correo" />
+              <input type="email" name="email" value={formData.email} onChange={handleChange}/>
               <label>Número:</label>
-              <input type="tel" name="numero" />
+              <input type="tel" name="phoneNumber" value={formData.phoneNumber}onChange={handleChange} />
               <button onClick={(event) => handleSubmit(event, 'standard')}>Enviar</button>
             </form>
           </div>

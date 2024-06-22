@@ -20,7 +20,7 @@ router.post('/send-email', async (req, res) => {
   // Configurar el mensaje de correo electrónico
   const mailOptions = {
     from: 'beelbonacossa@gmail.com',
-    to: 'beelbonacossa@gmail.com', // Reemplaza con tu correo electrónico
+    to: 'beelbonacossa@gmail.com', // Este es el correo que recibe el email
     subject: 'Mensaje de contacto',
     text: `
       Nombre: ${firstName} ${lastName}
