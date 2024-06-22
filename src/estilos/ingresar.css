@@ -32,6 +32,7 @@
 }
 
 .btn-primary:hover {
+  background-color: #ffffff; /* Color de fondo al pasar el ratón */
   background-color: #0056b3;
 }
 
