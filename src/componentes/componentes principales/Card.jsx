@@ -4,7 +4,7 @@ import '../../estilos/Card.css';
 
 const Card = ({ icon, title, description }) => {
   return (
-    <div className="card">
+    <div className="card1">
       <div className="card-icon">{icon}</div>
       <div className="card-title">{title}</div>
       <div className="card-description">{description}</div>
