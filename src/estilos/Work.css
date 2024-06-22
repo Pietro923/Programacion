@@ -7,7 +7,7 @@
 
 .work-title {
   font-size: 2.5em;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .work-categories {
@@ -23,10 +23,25 @@
 }
 
 .no-underline {
+  
+  font-size: 22px;
   text-decoration: none; /* Asegura que no haya subrayado */
   color: inherit; /* Mantiene el color del texto original */
 }
+.espacio {
+  font-size: 18px;
+  margin-bottom: 40px;
+  
+}
+.espacio a {
+  color: inherit; /* Hereda el color del texto del contenedor padre */
+  text-decoration: none; /* Elimina el subrayado predeterminado del enlace */
+  
+}
 
+.espacio a:hover {
+  color: blue; /* Cambia el color del texto a azul cuando se pasa el mouse por encima */
+}
 .work-categories span:hover {
   color: #007bff;
 }

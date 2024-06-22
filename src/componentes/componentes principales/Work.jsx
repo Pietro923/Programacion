@@ -41,6 +41,11 @@ const Work = () => {
           <span>Ver Ejemplo</span>
         </Link>
       </div>
+      <p className='espacio'> Lo invitamos a crearse una cuenta haciendo click en el boton&nbsp;
+            <a href="#inicio">ingresar</a>&nbsp;
+          para poder visualizar un modelo de nuestros servicios desde el POV de un Administrador
+      </p>
+      <p className='espacio'>¡Al crearse su cuenta va a recibir semanalmente nuestras novedades y promociones!</p>
       <div className="work-gallery">
         {projects.map((project, index) => (
           <div className="work-item" key={index} onClick={() => openImage(index)}>

@@ -1,71 +1,87 @@
 .chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-  }
-  
-  .chatbot {
-    max-width: 300px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .chatbot-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-  }
-  
-  .chatbot-body {
-    padding: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-  }
-  
-  .message {
-    margin-bottom: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  .received {
-    background-color: #e5e5ea;
-  }
-  
-  .sent {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .chatbot-footer {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  .chatbot-footer input[type="text"] {
-    flex: 1;
-    margin-right: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .chatbot-footer button {
-    background-color: #007bff;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .chatbot-footer button:hover {
-    background-color: #0056b3;
-  }
-  /* CSS Adicional para el Desplegable */
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  font-size: 20px; /* Aumentar tamaño de fuente */
+  z-index: 1000; /* Asegura que el chatbot esté en la parte superior */
+}
+
+.chatbot {
+  max-width: 300px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+.chatbot-header {
+  background-color: #A0937D;
+  color: white;
+  padding: 10px;
+  font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+.chatbot-body {
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 20px; /* Aumentar tamaño de fuente */
+}
+
+.message {
+  margin-TOP: 30px;
+  margin-bottom: 50px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+.message.user {
+  background-color: #e5e5ea;
+  font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+.message.bot {
+  background-color: #A0937D;
+  color: white;
+  font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+.chatbot-footer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+.chatbot-footer textarea {
+  flex: 1;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: none; /* Evita el redimensionamiento del textarea */
+  font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+.chatbot-footer button {
+  background-color: #A0937D;
+  color: white;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Aumentar tamaño de fuente */
+}
+
+.chatbot-footer button:hover {
+  background-color: #ffffff;
+  color: #3c3f3b;
+}
+
+/* CSS Adicional para el Desplegable */
 .chatbot-container.open {
   max-height: 500px; /* Altura máxima del chatbot cuando está abierto */
 }
@@ -76,6 +92,7 @@
   align-items: center;
   cursor: pointer;
   padding: 10px;
+  font-size: 16px; /* Aumentar tamaño de fuente */
 }
 
 .chatbot-header .chevron {
@@ -93,6 +110,7 @@
   overflow: hidden;
   transition: max-height 0.3s ease;
   padding: 0 10px;
+  font-size: 16px; /* Aumentar tamaño de fuente */
 }
 
 .chatbot-container.open .chatbot-body,
