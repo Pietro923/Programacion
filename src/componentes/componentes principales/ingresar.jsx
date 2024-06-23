@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import '../../estilos/ingresar.css'; // Importa el archivo CSS
+import { gapi } from "gapi-script";
+import GoogleLogin from 'react-google-login';
 
 function Ingresar({ show, handleClose }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  const clientID = "267258751022-dj5vfdh1ag217ohj1e1o7oe22hrn5lln.apps.googleusercontent.com";
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
 
   const handleLoginClick = async () => {
     try {
@@ -22,14 +26,14 @@ function Ingresar({ show, handleClose }) {
         alert('Inicio de sesión exitoso');
         // Aquí puedes manejar el almacenamiento del token JWT en el localStorage o contexto
         handleClose();
-        navigate('/ingresar'); 
+        navigate('/ingresar');
       } else {
         alert(data.error);
       }
-      } catch (error) {
+    } catch (error) {
       console.error('Error al iniciar sesión:', error);
       alert('Error al iniciar sesión');
-      }
+    }
   };
 
   const handleRegisterClick = async () => {
@@ -54,9 +58,30 @@ function Ingresar({ show, handleClose }) {
     }
   };
 
-  const handleGoogleLoginClick = () => {
-    // Implementa la lógica de inicio de sesión con Google aquí
-    alert("Iniciar sesión con Google aún no está implementado");
+  const onSuccess = (response) => {
+    setUser(response.profileObj);
+    setLoggedIn(true);
+    navigate('/ingresar'); // Redirigir automáticamente al perfil después del inicio de sesión exitoso
+  };
+
+  const onFailure = (response) => {
+    console.log("Algo salió mal con Google Login");
+  };
+
+  useEffect(() => {
+    const start = () => {
+      gapi.client.init({
+        clientId: clientID,
+      });
+    };
+    gapi.load("client:auth2", start);
+  }, []);
+
+  
+
+  const handleLogout = () => {
+    setUser({});
+    setLoggedIn(false);
   };
 
   return (
@@ -94,9 +119,26 @@ function Ingresar({ show, handleClose }) {
       </Modal.Body>
       <Modal.Footer>
         <p>O iniciá sesión con</p>
-        <Button variant="light" type="button" onClick={handleGoogleLoginClick} className="btn-google">
-          <i className="fab fa-google"></i> Google
-        </Button>
+        {!loggedIn && (
+          <GoogleLogin
+            clientId={clientID}
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+            cookiePolicy={"single_host_origin"}
+            render={renderProps => (
+              <Button variant="light" type="button" onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn-google">
+                <i className="fab fa-google"></i> Google
+              </Button>
+            )}
+          />
+        )}
+        {loggedIn && (
+          <div>
+            <img src={user.imageUrl} alt="profile" />
+            <h3>{user.name}</h3>
+            <Button variant="light" onClick={handleLogout}>Logout</Button>
+          </div>
+        )}
       </Modal.Footer>
     </Modal>
   );
