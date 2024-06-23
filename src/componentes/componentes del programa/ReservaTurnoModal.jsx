@@ -29,6 +29,14 @@ function ReservaTurnoModal() {
   const reloadPage = () => {
     window.location.reload();
   };
+  const isHourDisabled = (hour) => {
+    const selectedDateTime = new Date(selectedDate);
+    const currentDateTime = new Date();
+    const [selectedHour] = hour.split(':');
+    const selectedDateWithHour = new Date(selectedDateTime.setHours(selectedHour, 0, 0, 0));
+    
+    return selectedDateWithHour < currentDateTime;
+  };
   
   return (
     <>
@@ -46,16 +54,17 @@ function ReservaTurnoModal() {
           <div className="mt-3">
             <h5>Selecciona una hora:</h5>
             <div className="d-flex flex-wrap">
-              {['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'].map((hour) => (
-                <Button
-                  key={hour}
-                  variant={selectedTime === hour ? 'primary' : 'outline-primary'}
-                  className="m-1"
-                  onClick={() => setSelectedTime(hour)}
-                >
-                  {hour}
-                </Button>
-              ))}
+            {['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'].map((hour) => (
+              <Button
+                key={hour}
+                variant={selectedTime === hour ? 'primary' : 'outline-primary'}
+                className="m-1"
+                onClick={() => setSelectedTime(hour)}
+                disabled={isHourDisabled(hour)}
+              >
+                {hour}
+              </Button>
+            ))}
             </div>
           </div>
           <div className="mt-3">
@@ -126,7 +135,7 @@ function ReservaTurnoModal() {
             Cerrar
           </Button>
           {/* Cambio en el onClick del botón "Confirmar" */}
-          <Button variant="primary" onClick={() => { handleSubmit(); reloadPage(); }}>
+          <Button variant="primary" onClick={() => { handleSubmit(); }}>
             Confirmar
           </Button>
         </Modal.Footer>

@@ -23,6 +23,11 @@ router.post('/saveAppointment', async (req, res) => {
     // Definir la colección
     const AppointmentModel = mongoose.model('Appointment', appointmentSchema, collection || 'turnos');
     
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0); // Establecer a las 00:00:00 horas
+    if (new Date(date) < currentDate) {
+      return res.status(400).json({ error: 'No puedes reservar turnos para fechas pasadas.' });
+    }
     // Crear una nueva instancia del modelo Appointment
     const newAppointment = new AppointmentModel({
       userName,
