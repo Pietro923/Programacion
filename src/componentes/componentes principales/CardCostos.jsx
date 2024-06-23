@@ -36,7 +36,7 @@ const CardCostos = () => {
     event.preventDefault();
     
     try {
-      const response = await fetch('http://localhost:5000/contacto/send-email', {
+      const response = await fetch('http://localhost:5000/servicios/send-service-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

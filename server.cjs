@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const appointmentsRouter = require('./routes/appointments'); // Importar el router de appointments
 const contactoRouter = require('./routes/contacto');
+const serviciosRouter = require('./routes/servicios'); // Importar el nuevo router de servicios
 
 const app = express();
 app.use(cors());
@@ -79,6 +80,7 @@ app.post('/login', async (req, res) => {
 // Usar el router de appointments
 app.use('/api', appointmentsRouter);
 app.use('/contacto', contactoRouter); // Aquí asumo que tu ruta es '/contacto/send-email'
+app.use('/servicios', serviciosRouter); // Añadir la nueva ruta de servicios
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
