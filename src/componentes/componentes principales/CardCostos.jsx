@@ -18,10 +18,10 @@ const CardCostos = () => {
 
    // Mensajes específicos para cada tipo de servicio
    const serviceMessages = {
-    standard: 'Gracias por contratar el Servicio Estándar. Nos pondremos en contacto contigo pronto.',
-    premium: 'Gracias por contratar el Servicio Premium. Nos pondremos en contacto contigo pronto.',
-    medida: 'Gracias por contratar un Servicio a Medida. Nos pondremos en contacto contigo pronto.'
-  };
+    standard: "¡Gracias por confiar en nuestro Servicio Estándar! Para nosotros es un privilegio acompañarte en este proyecto. Nos comprometemos a brindarte resultados excepcionales y una experiencia fluida. Pronto nos pondremos en contacto contigo para conocer más detalles y comenzar a trabajar juntos en alcanzar tus metas.",
+    premium: "¡Felicitaciones por optar por nuestro Servicio Premium! Tu decisión nos inspira a superar tus expectativas. Estamos comprometidos a proporcionarte un servicio de primera clase, centrado en la excelencia y la personalización. Nos emociona iniciar este viaje contigo y estamos ansiosos por explorar todas las posibilidades para hacer realidad tu visión. Pronto nos comunicaremos para dar los primeros pasos hacia el éxito conjunto.",
+    medida: "¡Enhorabuena por elegir nuestro Servicio a Medida! Valoramos tu confianza en nosotros para crear una solución totalmente adaptada a tus necesidades únicas. Nos dedicamos a diseñar cada detalle con precisión y cuidado, asegurándonos de que cada aspecto refleje tus objetivos y visión. Estamos emocionados de colaborar contigo en este emocionante proyecto. Nos comunicaremos pronto para discutir los próximos pasos y comenzar a convertir tus ideas en realidad."
+};
 
   const handleOpenModal = (type) => {
     setFormData({ ...formData, serviceType: type, serviceMessage: serviceMessages[type] }); // Establecer tipo y mensaje de servicio
