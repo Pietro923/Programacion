@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import '../../estilos/estilos del programa/Chatbot.css';
 
-// Configurar la clave API desde el archivo .env
 const apiKey = process.env.REACT_APP_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -74,19 +73,18 @@ function Chatbot() {
   };
 
   return (
-    <div className={`chatbot-container ${isOpen ? 'open' : ''}`}>
+    <div className={`chatbot-container ${isOpen ? 'open' : 'closed'}`}>
       <div className="chatbot">
         <div className="chatbot-header" onClick={() => setIsOpen(!isOpen)}>
           <h3>Chatbot</h3>
           <span className={`chevron ${isOpen ? 'open' : ''}`}>&#8964;</span>
         </div>
-        <div className={`chatbot-body ${isOpen ? 'open' : ''}`}>
+        <div className={`chatbot-body ${isOpen ? 'open' : ''}`} ref={bottomRef}>
           {messages.map((msg, index) => (
             <div key={index} className={`message ${msg.sender}`}>
               {msg.text}
             </div>
           ))}
-          <div ref={bottomRef} />
         </div>
         <div className={`chatbot-footer ${isOpen ? 'open' : ''}`}>
           <form className="chat-form" onSubmit={handleSubmit}>
@@ -104,6 +102,6 @@ function Chatbot() {
       </div>
     </div>
   );
-};
+}
 
 export default Chatbot;
