@@ -1,35 +1,40 @@
-.contact-form-container h2 {
-  font-size: 40px;
-}
+/* Estilos CSS mejorados y más coloridos para el formulario de contacto */
+
 .contact-form-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .contact-form-container h2 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
 }
 
 .contact-form-container form {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .form-left,
 .form-right {
-  width: 48%;
+  flex: 1;
 }
 
 .form-left label,
 .form-right label {
   display: block;
   margin-bottom: 10px;
+  font-size: 1rem;
+  color: #555;
 }
 
 .form-left textarea {
@@ -39,6 +44,8 @@
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
 }
 
 .form-right input[type="text"],
@@ -48,6 +55,8 @@
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
 }
 
 .form-right button {
@@ -58,6 +67,8 @@
   background-color: #007bff;
   color: #fff;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .form-right button:hover {
