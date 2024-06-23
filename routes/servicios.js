@@ -3,10 +3,9 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 
-
 // Definir una ruta para manejar el envío de correos electrónicos para los servicios
 router.post('/send-service-email', async (req, res) => {
-  const { firstName, lastName, phoneNumber, email, serviceType } = req.body;
+  const { firstName, lastName, phoneNumber, email, serviceType, serviceMessage } = req.body;
 
   // Configurar el transporte de correo
   const transporter = nodemailer.createTransport({
@@ -20,13 +19,12 @@ router.post('/send-service-email', async (req, res) => {
   // Configurar el mensaje de correo electrónico
   const mailOptions = {
     from: 'beelbonacossa@gmail.com',
-    to: email, // Este es el correo que recibe el email
+    to: email,
     subject: `Solicitud de servicio: ${serviceType}`,
     text: `
-      Nombre: ${firstName} ${lastName}
-      Teléfono: ${phoneNumber}
-      Correo electrónico: ${email}
-      Tipo de servicio: ${serviceType}
+      ¡Hola! ${firstName} ${lastName} Esperamos encontrarte bien!
+      Gracias por interesarte en nuestro servicio ${serviceType}
+      ${serviceMessage}
     `
   };
 

@@ -1,31 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import '../../estilos/Cardcostos.css';
 
-
 const CardCostos = () => {
-  const [showModal, setShowModal] = useState({ standard: false, premium: false, medida:false, informacion:false });
+  const [showModal, setShowModal] = useState({ standard: false, premium: false, medida: false, informacion: false });
 
   const initialFormData = {
     firstName: '',
     lastName: '',
     phoneNumber: '',
     email: '',
-    message: ''
+    message: '',
+    serviceType: '', // Añadir campo para el tipo de servicio
+    serviceMessage: '' // Añadir campo para el mensaje del servicio
   };
-  // Función para abrir el modal
+
+  const [formData, setFormData] = useState(initialFormData);
+
+   // Mensajes específicos para cada tipo de servicio
+   const serviceMessages = {
+    standard: 'Gracias por contratar el Servicio Estándar. Nos pondremos en contacto contigo pronto.',
+    premium: 'Gracias por contratar el Servicio Premium. Nos pondremos en contacto contigo pronto.',
+    medida: 'Gracias por contratar un Servicio a Medida. Nos pondremos en contacto contigo pronto.'
+  };
+
   const handleOpenModal = (type) => {
-    // Cerrar los otros modales y abrir el modal de información
-    setShowModal({ standard: false, premium: false, medida: false, });
+    setFormData({ ...formData, serviceType: type, serviceMessage: serviceMessages[type] }); // Establecer tipo y mensaje de servicio
+    setShowModal({ standard: false, premium: false, medida: false, informacion: false });
     setShowModal((prev) => ({ ...prev, [type]: true }));
   };
 
-  // Función para cerrar el modal
   const handleCloseModal = (type) => {
     setShowModal({ ...showModal, [type]: false });
   };
-
-  // Desde aqui no entiendo que estoy haciendo pero funciona el enviar el correo, pero no manda lo que quiero aun.
-  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,7 +40,7 @@ const CardCostos = () => {
 
   const handleSubmit = async (event, modalType) => {
     event.preventDefault();
-    
+
     try {
       const response = await fetch('http://localhost:5000/servicios/send-service-email', {
         method: 'POST',
@@ -43,27 +49,21 @@ const CardCostos = () => {
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
-        // Aquí puedes agregar lógica adicional si el envío fue exitoso
         console.log('Mensaje enviado correctamente');
       } else {
         alert('Hubo un problema al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.');
       }
     } catch (error) {
-      // Manejar errores de red u otros errores
       console.error('Error al enviar el mensaje:', error);
       alert('Hubo un problema al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.');
     }
 
-    // Cierra el modal actual y abre el modal de "informacion"
     handleCloseModal(modalType);
     handleOpenModal('informacion');
   };
 
-  // Hasta aqui no entiendo bien que hice pero "funciona"
-
-  // Evento de teclado para cerrar el modal al presionar "Esc"
   useEffect(() => {
     const handleEsc = (event) => {
       if (event.keyCode === 27) {
@@ -142,9 +142,9 @@ const CardCostos = () => {
               <label>Apellido:</label>
               <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
               <label>Correo:</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange}/>
+              <input type="email" name="email" value={formData.email} onChange={handleChange} />
               <label>Número:</label>
-              <input type="tel" name="phoneNumber" value={formData.phoneNumber}onChange={handleChange} />
+              <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
               <button onClick={(event) => handleSubmit(event, 'standard')}>Enviar</button>
             </form>
           </div>
@@ -158,37 +158,39 @@ const CardCostos = () => {
             <h3 className='h3'>Contratar Servicio Premium</h3>
             <form className="modal-form">
               <label>Nombre:</label>
-              <input type="text" name="nombre" />
+              <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
               <label>Apellido:</label>
-              <input type="text" name="apellido" />
+              <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
               <label>Correo:</label>
-              <input type="email" name="correo" />
+              <input type="email" name="email" value={formData.email} onChange={handleChange} />
               <label>Número:</label>
-              <input type="tel" name="numero" />
+              <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
               <button onClick={(event) => handleSubmit(event, 'premium')}>Enviar</button>
             </form>
           </div>
         </div>
       )}
+
       {showModal.medida && (
         <div className="modal-container" onClick={() => handleCloseModal('medida')}>
           <div className="modal-content1" onClick={(e) => e.stopPropagation()}>
             <span className="close-btn" onClick={() => handleCloseModal('medida')}>&times;</span>
-            <h3 className='h3'>Contratar Servicio Medida</h3>
+            <h3 className='h3'>Contratar Servicio a Medida</h3>
             <form className="modal-form">
               <label>Nombre:</label>
-              <input type="text" name="nombre" />
+              <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
               <label>Apellido:</label>
-              <input type="text" name="apellido" />
+              <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
               <label>Correo:</label>
-              <input type="email" name="correo" />
+              <input type="email" name="email" value={formData.email} onChange={handleChange} />
               <label>Número:</label>
-              <input type="tel" name="numero" />
-              <button onClick={(event) => handleSubmit(event, 'standard')}>Enviar</button>
+              <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
+              <button onClick={(event) => handleSubmit(event, 'medida')}>Enviar</button>
             </form>
           </div>
         </div>
       )}
+
       {showModal.informacion && (
         <div className="modal-container" onClick={() => handleCloseModal('informacion')}>
           <div className="modal-content1" onClick={(e) => e.stopPropagation()}>
